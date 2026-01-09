@@ -1,0 +1,117 @@
+/* Top Navigation Bar Styles */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: hsl(var(--background));
+  border-bottom: 1px solid hsl(var(--border));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: hsl(var(--primary));
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  transition: color 200ms, background-color 200ms;
+}
+
+.nav-item:hover {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--muted));
+}
+
+.nav-item.active {
+  color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.1);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.role-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.logout-btn {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: background-color 200ms;
+}
+
+.logout-btn:hover {
+  background-color: hsl(var(--muted));
+}
+
+/* Adjust main content for top nav */
+main {
+  padding-top: 4rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .nav-items {
+    gap: 0;
+  }
+  
+  .nav-item {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .nav-item span:not(.role-badge) {
+    display: none;
+  }
+  
+  .user-info span:not(.role-badge) {
+    display: none;
+  }
+}
+
+/* Ensure content doesn't hide behind fixed nav */
+body {
+  padding-top: 4rem;
+}
